@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Tsystem_Day5
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -39,7 +39,17 @@ namespace Tsystem_Day5
             {
                 Console.WriteLine("int the finally block");
             }
-            
+            Console.WriteLine("-----------custom exception-----------");
+            User u = new User();
+            try
+            {
+                int age = u.AcceptAge(13);
+                Console.WriteLine("your age is " + age);
+            }
+            catch(Exception ex )
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }
