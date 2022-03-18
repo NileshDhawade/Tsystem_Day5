@@ -6,8 +6,27 @@ using System.Threading.Tasks;
 
 namespace Tsystem_Day5
 {
+    public delegate void ErrorDelegate(); // this delegate is regarding delegate implementations 
+    public delegate void DisplayMsg();
+    
     public class Program
     {
+
+        static void ErrorMsg()  // this method is regarding delegate implementation ...see delegate implementation following 
+        {
+            Console.WriteLine("this user is not valid for votes");
+
+        }
+
+        static void FailMsg()
+        {
+            Console.WriteLine("Oops ..you are fail:");
+        }
+        static void PassMsg()
+        {
+            Console.WriteLine("Congratulations... you are pass:");
+        }
+
         static void Main(string[] args)
         {
             Console.WriteLine("=====out keyword implementation=====");
@@ -50,6 +69,22 @@ namespace Tsystem_Day5
             {
                 Console.WriteLine(ex.Message);
             }
+
+            Console.WriteLine("=========Event and delegates========");
+
+            EventAndDelegate_User2 ed = new EventAndDelegate_User2();
+            ed.AgeEvent += new ErrorDelegate(ErrorMsg);
+            ed.AcceptAge(20);
+
+            Console.WriteLine("----------------------------------------------");
+            Student st = new Student();
+            st.FailEvent += new DisplayMsg(FailMsg);
+            st.PassEvent += new DisplayMsg(PassMsg);
+            st.AcceptMarks(45);
+
+
+
+           
         }
     }
 }
