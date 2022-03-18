@@ -20,6 +20,25 @@ namespace Tsystem_Day5
             Console.WriteLine(sub);
             Console.WriteLine(mult);
             Console.WriteLine(div);
+
+            Console.WriteLine("========Exception Handeling=========");
+
+            int a1 = 4, b1 = 0, c1;
+
+            try
+            {
+                c1 = a1 / b1;
+                Console.WriteLine("division is " + c1);
+            }
+            catch(Exception ex)    // if we have exception in try bolck then direct control comes to catch block
+                                   // and will display the message in try block
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                Console.WriteLine("int the finally block");
+            }
             
         }
     }
